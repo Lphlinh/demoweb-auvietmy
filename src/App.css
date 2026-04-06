@@ -13,11 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
    * { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-  background-color: #f8fafc; 
-  color: #334155; 
-}
+
 html { scroll-behavior: smooth; }
 section, header.hero { scroll-margin-top: 100px; }
 
@@ -311,12 +307,17 @@ section, header.hero { scroll-margin-top: 100px; }
    8. RESPONSIVE ĐIỆN THOẠI
    ========================================= */
 @media (max-width: 900px) {
-  .nav-container { flex-direction: column; gap: 15px; }
-  .desktop-nav { flex-wrap: wrap; justify-content: center; }
-  .hero { flex-direction: column; }
+  /* 1. Sửa lỗi Header khổng lồ và bỏ sticky trên mobile */
+  .sticky-header { position: relative; padding: 10px 0; }
+  .nav-container { flex-direction: row; justify-content: center; }
+  .desktop-nav { display: none; }
+
+  /* Giữ nguyên cấu trúc responsive của các phần khác */
+  .hero { flex-direction: column; margin-top: 20px; }
   .hero-stats { flex-direction: column; }
   .program-grid, .benefit-grid { grid-template-columns: 1fr; }
   .cta-box { flex-direction: column; text-align: center; gap: 30px; }
-  .floating-cta { bottom: 20px; right: 20px; }
-  .float-btn { padding: 10px 16px; font-size: 14px; }
+
+  /* 2. Ẩn cụm nút trôi bám đuổi trên mobile để tránh phản cảm */
+  .floating-cta { display: none; }
 }
